@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="bidmobileservices.MainPage"
+    IsTabStop="false"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:bidmobileservices"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    RequestedTheme="Light">
+
+    <Grid Background="WhiteSmoke">
+        <ListView SelectedItem="{Binding SelectedBidItem, Mode=TwoWay}"
+                  ItemsSource="{Binding BidData}"
+                  Name="listview"       
+                  SelectionMode="Single"
+                  Foreground="#FF191919">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border CornerRadius="2"
+                            BorderThickness="1"
+                            Padding="0,5">
+                        <StackPanel VerticalAlignment="Top">
+                            <TextBlock Text="{Binding ItemName}"
+                                       FontFamily="Segoe UI"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="#FF7E7E7E"
+                                       Margin="10,0" />
+                            <TextBlock Text="{Binding BidAmount}"
+                                       FontFamily="Segoe UI"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="#FFA6A2A2"
+                                       TextWrapping="Wrap"
+                                       Margin="10,0" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Name="btnProcessBid" Command="{Binding ProcessBid}">
+            <TextBlock 
+                Text="Process Selected Bid"
+                                       FontFamily="Segoe UI"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="#FFA6A2A2"
+                                       TextWrapping="Wrap"
+                                       Margin="10,0" />
+        </Button>
+    </Grid>
+</Page>
